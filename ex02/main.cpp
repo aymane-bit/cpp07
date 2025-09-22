@@ -1,37 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aymane <aymane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 21:34:37 by aymane            #+#    #+#             */
-/*   Updated: 2025/09/22 16:35:12 by aymane           ###   ########.fr       */
+/*   Created: 2025/09/22 16:38:37 by aymane            #+#    #+#             */
+/*   Updated: 2025/09/22 16:38:48 by aymane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
-
-#include <iostream>
-
-template <typename T>
-void    iter(T *arr_add, size_t arr_len, void  (*func)(T const &))
-{
-    if (arr_add == NULL || func == NULL )
-        return ;
-    for (size_t i = 0; i < arr_len; i++)
-    {
-        func(arr_add[i]);
-    }
-}
-
-template <typename T>
-void printElem(T const &x)
-{
-    std::cout << x << std::endl;
-}
-
-
-
-#endif
+#include "Array.hpp"

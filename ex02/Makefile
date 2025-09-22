@@ -2,9 +2,9 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror  -std=c++98
 
-TARGET = iter
+TARGET = Array
 
-Header = iter.hpp
+Header = Array.hpp
 
 SRC = main.cpp
 
