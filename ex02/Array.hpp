@@ -6,7 +6,7 @@
 /*   By: aymane <aymane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 16:48:57 by aymane            #+#    #+#             */
-/*   Updated: 2025/09/22 18:40:41 by aymane           ###   ########.fr       */
+/*   Updated: 2025/09/23 17:02:23 by aymane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,22 @@ class Array
         size_t arr_size;
 
     public :
+    // C.O.F
         Array();
         Array(unsigned int n);
         Array(const Array& original);
         Array& operator=(const Array& original);
-        
+        ~Array();
+    // exeption class
+        class OutOfBound : public std::exception
+        {
+            public :
+                const char* what() const throw();
+        };
+    // index op
+        T& operator[](size_t index);
+    // mm fct
+        size_t size() const; 
 };
 
 

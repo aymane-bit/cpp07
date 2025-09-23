@@ -6,7 +6,7 @@
 /*   By: aymane <aymane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 16:58:37 by aymane            #+#    #+#             */
-/*   Updated: 2025/09/22 18:55:50 by aymane           ###   ########.fr       */
+/*   Updated: 2025/09/23 17:02:34 by aymane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ Array<T>::Array() : array(NULL), arr_size(0)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : array(new T[n]), arr_size(n)
 {
-    array = new T[n];
-    arr_size = n;
     std::cout << "Array Constructor is called, Creates an array with unsigned int\n";
 }
 
@@ -52,8 +50,35 @@ Array<T>& Array<T>::operator=(const Array& original)
     for (size_t i = 0; i < arr_size; i++)
         this->array[i] = original.array[i];
 
-    std::cout << "Array Assignement Operator is called"
+    std::cout << "Array Assignement Operator is called\n";
     
     return *this;
+}
+
+template <typename T>
+Array<T>::~Array()
+{
+    delete[] array;
+    std::cout << "Array Destructor is called\n";
+}
+
+template <typename T>
+const char* Array<T>::OutOfBound::what() const throw()
+{
+    return "Index out of bounds!";
+}
+
+template <typename T>
+T& Array<T>::operator[](size_t index)
+{
+    if (index >= arr_size)
+        throw OutOfBound();
+    return array[index];
+}
+
+template <typename T>
+size_t Array<T>::size() const
+{
+    return arr_size;
 }
 
