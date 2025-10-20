@@ -6,14 +6,11 @@
 /*   By: aymane <aymane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 16:38:37 by aymane            #+#    #+#             */
-/*   Updated: 2025/09/23 17:00:39 by aymane           ###   ########.fr       */
+/*   Updated: 2025/10/20 12:30:00 by aymane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
-
-#define MAX_VAL 750
 
 int main()
 {
@@ -47,10 +44,12 @@ int main()
     std::cout << "\n\n";
 
     std::cout << "=== Exception test ===\n";
-    try {
-        std::cout << numbers[10] << "\n"; // Out of bounds
+    try
+    {
+        std::cout << numbers[10] << "\n";
     }
-    catch (const std::exception& e) {
+    catch (const std::exception& e)
+    {
         std::cerr << "Caught exception: " << e.what() << "\n";
     }
 
